@@ -15,7 +15,8 @@ public class SunReflectionCallerDetector implements CallerDetector {
 
     @Override
     public String getCallerClassName( int callDepth ) {
-        return sun.reflect.Reflection.getCallerClass( callDepth ).getName();
+        // return sun.reflect.Reflection.getCallerClass( callDepth ).getName();
+        return "";
     }
 
 }

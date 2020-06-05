@@ -19,6 +19,8 @@ public class PacketResourcePackStack extends Packet {
     private List<ResourcePack> behaviourPackEntries;
     private List<ResourcePack> resourcePackEntries;
 
+    private boolean experimental;
+
     public PacketResourcePackStack() {
         super( Protocol.PACKET_RESOURCEPACK_STACK );
     }
@@ -44,6 +46,9 @@ public class PacketResourcePackStack extends Packet {
                 buffer.writeString( "" );
             }
         }
+
+        buffer.writeBoolean( this.experimental );
+        buffer.writeString( Protocol.MINECRAFT_PE_NETWORK_VERSION );
     }
 
     @Override
