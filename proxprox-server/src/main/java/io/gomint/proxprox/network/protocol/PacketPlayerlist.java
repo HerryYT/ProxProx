@@ -37,15 +37,6 @@ public class PacketPlayerlist extends Packet {
                 buffer.writeSignedVarLong( entry.getEntityId() );
                 buffer.writeString( entry.getName() );
 
-                // xbox user id
-                buffer.writeString( entry.xboxId );
-
-                // device name
-                buffer.writeString( "" );
-
-                // device os
-                buffer.writeLInt( 7 );
-
                 buffer.writeString( entry.getSkin().getName() );
 
                 // Raw skin data
@@ -67,22 +58,15 @@ public class PacketPlayerlist extends Packet {
                 buffer.writeUnsignedVarInt( entry.skin.getGeometryData().length );
                 buffer.writeBytes( entry.skin.getGeometryData() );
 
-                // Is teacher
-                buffer.writeBoolean( false );
+                // xbox user id
+                buffer.writeString( entry.xboxId );
 
-                // Is host
-                buffer.writeBoolean( false );
+                // TODO: Is this the same as the unknown one in SpawnPlayer?
+                buffer.writeString( entry.uuid.toString() );
             }
         } else {
             for ( Entry entry : this.entries ) {
                 buffer.writeUUID( entry.getUuid() );
-            }
-        }
-
-        if ( mode == 0 ) {
-            for (int i = 0; i < entries.size(); i++) {
-                // Is skin trusted
-                buffer.writeBoolean( true );
             }
         }
     }

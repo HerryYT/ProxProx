@@ -20,7 +20,7 @@ import java.util.UUID;
 public class PacketResourcePacksInfo extends Packet {
 
     private boolean mustAccept;
-    private boolean hasScripts;
+    private boolean hasScripts = false;
     private List<ResourcePack> behaviourPackEntries;
     private List<ResourcePack> resourcePackEntries;
 

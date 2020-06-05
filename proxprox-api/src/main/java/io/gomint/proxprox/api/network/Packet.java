@@ -10,7 +10,6 @@ package io.gomint.proxprox.api.network;
 import io.gomint.jraknet.PacketBuffer;
 import io.gomint.proxprox.api.inventory.ItemStack;
 import io.gomint.proxprox.api.math.BlockPosition;
-import io.gomint.taglib.AllocationLimitReachedException;
 import io.gomint.taglib.NBTReader;
 import io.gomint.taglib.NBTTagCompound;
 
@@ -120,7 +119,7 @@ public abstract class Packet {
                 NBTReader nbtReader = new NBTReader( bin, ByteOrder.LITTLE_ENDIAN );
                 // nbtReader.setUseVarint( true );
                 nbt = nbtReader.parse();
-            } catch ( IOException | AllocationLimitReachedException e ) {
+            } catch ( IOException e ) {
                 e.printStackTrace();
             }
 
